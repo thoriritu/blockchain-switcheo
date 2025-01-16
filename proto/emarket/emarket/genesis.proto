@@ -1,17 +1,20 @@
 syntax = "proto3";
+
 package emarket.emarket;
 
 import "amino/amino.proto";
 import "gogoproto/gogo.proto";
 import "emarket/emarket/params.proto";
+import "emarket/emarket/item.proto";
 
 option go_package = "emarket/x/emarket/types";
 
 // GenesisState defines the emarket module's genesis state.
 message GenesisState {
+  
   // params defines all the parameters of the module.
-  Params params = 1 [
-    (gogoproto.nullable) = false,
-    (amino.dont_omitempty) = true
-  ];
+           Params params    = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  repeated Item   itemList  = 2 [(gogoproto.nullable) = false] ;
+           uint64 itemCount = 3;
 }
+

@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package emarket.emarket;
 
 import "amino/amino.proto";
@@ -6,25 +7,53 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "emarket/emarket/params.proto";
+import "emarket/emarket/item.proto";
 
 option go_package = "emarket/x/emarket/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/emarket/emarket/params";
+  
+  }
+  
+  // Queries a list of Item items.
+  rpc Item    (QueryGetItemRequest) returns (QueryGetItemResponse) {
+    option (google.api.http).get = "/emarket/emarket/item/{id}";
+  
+  }
+  rpc ItemAll (QueryAllItemRequest) returns (QueryAllItemResponse) {
+    option (google.api.http).get = "/emarket/emarket/item";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
-  Params params = 1 [
-    (gogoproto.nullable) = false,
-    (amino.dont_omitempty) = true
-  ];
+  Params params = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
 }
+
+message QueryGetItemRequest {
+  uint64 id = 1;
+}
+
+message QueryGetItemResponse {
+  Item Item = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllItemRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllItemResponse {
+  repeated Item                                   Item       = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+

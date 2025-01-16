@@ -17,6 +17,17 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod: "ItemAll",
+					Use:       "list-item",
+					Short:     "List all item",
+				},
+				{
+					RpcMethod:      "Item",
+					Use:            "show-item [id]",
+					Short:          "Shows a item by id",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
@@ -27,6 +38,24 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
+				},
+				{
+					RpcMethod:      "CreateItem",
+					Use:            "create-item [name] [productType] [amount] [price] [discounted]",
+					Short:          "Create item",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}, {ProtoField: "productType"}, {ProtoField: "amount"}, {ProtoField: "price"}, {ProtoField: "discounted"}},
+				},
+				{
+					RpcMethod:      "UpdateItem",
+					Use:            "update-item [id] [name] [productType] [amount] [price] [discounted]",
+					Short:          "Update item",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}, {ProtoField: "name"}, {ProtoField: "productType"}, {ProtoField: "amount"}, {ProtoField: "price"}, {ProtoField: "discounted"}},
+				},
+				{
+					RpcMethod:      "DeleteItem",
+					Use:            "delete-item [id]",
+					Short:          "Delete item",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
 				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
