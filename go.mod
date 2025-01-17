@@ -1,4 +1,4 @@
-module emarket
+module switcheo
 
 go 1.22.7
 

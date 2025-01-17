@@ -1,0 +1,14 @@
+syntax = "proto3";
+package switcheo.switcheo;
+
+option go_package = "switcheo/x/switcheo/types";
+
+message Item {
+  uint64 id = 1;
+  string name = 2; 
+  string productType = 3; 
+  int32 amount = 4; 
+  int32 price = 5; 
+  bool discounted = 6; 
+  string creator = 7;
+}

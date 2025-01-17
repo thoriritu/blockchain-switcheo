@@ -75,15 +75,15 @@ import (
 	ibctransferkeeper "github.com/cosmos/ibc-go/v8/modules/apps/transfer/keeper"
 	ibckeeper "github.com/cosmos/ibc-go/v8/modules/core/keeper"
 
-	emarketmodulekeeper "emarket/x/emarket/keeper"
+	switcheomodulekeeper "switcheo/x/switcheo/keeper"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	"emarket/docs"
+	"switcheo/docs"
 )
 
 const (
 	AccountAddressPrefix = "cosmos"
-	Name                 = "emarket"
+	Name                 = "switcheo"
 )
 
 var (
@@ -141,7 +141,7 @@ type App struct {
 	ScopedICAHostKeeper       capabilitykeeper.ScopedKeeper
 	ScopedKeepers             map[string]capabilitykeeper.ScopedKeeper
 
-	EmarketKeeper emarketmodulekeeper.Keeper
+	switcheoKeeper switcheomodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -245,7 +245,7 @@ func New(
 		&app.NFTKeeper,
 		&app.GroupKeeper,
 		&app.CircuitBreakerKeeper,
-		&app.EmarketKeeper,
+		&app.switcheoKeeper,
 		// this line is used by starport scaffolding # stargate/app/keeperDefinition
 	); err != nil {
 		panic(err)

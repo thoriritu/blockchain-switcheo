@@ -1,6 +1,6 @@
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 COMMIT := $(shell git log -1 --format='%H')
-APPNAME := emarket
+APPNAME := switcheo
 
 # don't override user values
 ifeq (,$(VERSION))

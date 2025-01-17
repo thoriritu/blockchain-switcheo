@@ -53,9 +53,9 @@ import (
 	ibcexported "github.com/cosmos/ibc-go/v8/modules/core/exported"
 	"google.golang.org/protobuf/types/known/durationpb"
 
-	emarketmodulev1 "emarket/api/emarket/emarket/module"
-	_ "emarket/x/emarket/module" // import for side-effects
-	emarketmoduletypes "emarket/x/emarket/types"
+	switcheomodulev1 "switcheo/api/switcheo/switcheo/module"
+	_ "switcheo/x/switcheo/module" // import for side-effects
+	switcheomoduletypes "switcheo/x/switcheo/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 
@@ -93,7 +93,7 @@ var (
 		consensustypes.ModuleName,
 		circuittypes.ModuleName,
 		// chain modules
-		emarketmoduletypes.ModuleName,
+		switcheomoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	}
 
@@ -118,7 +118,7 @@ var (
 		icatypes.ModuleName,
 		ibcfeetypes.ModuleName,
 		// chain modules
-		emarketmoduletypes.ModuleName,
+		switcheomoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	}
 
@@ -137,7 +137,7 @@ var (
 		icatypes.ModuleName,
 		ibcfeetypes.ModuleName,
 		// chain modules
-		emarketmoduletypes.ModuleName,
+		switcheomoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	}
 
@@ -294,8 +294,8 @@ var (
 				Config: appconfig.WrapAny(&circuitmodulev1.Module{}),
 			},
 			{
-				Name:   emarketmoduletypes.ModuleName,
-				Config: appconfig.WrapAny(&emarketmodulev1.Module{}),
+				Name:   switcheomoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&switcheomodulev1.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

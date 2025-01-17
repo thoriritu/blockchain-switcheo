@@ -32,11 +32,11 @@ import (
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 
-	"emarket/app"
+	"switcheo/app"
 )
 
 const (
-	SimAppChainID = "emarket-simapp"
+	SimAppChainID = "switcheo-simapp"
 )
 
 var FlagEnableStreamingValue bool

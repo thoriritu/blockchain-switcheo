@@ -17,11 +17,11 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/stretchr/testify/require"
 
-	"emarket/x/emarket/keeper"
-	"emarket/x/emarket/types"
+	"switcheo/x/switcheo/keeper"
+	"switcheo/x/switcheo/types"
 )
 
-func EmarketKeeper(t testing.TB) (keeper.Keeper, sdk.Context) {
+func switcheoKeeper(t testing.TB) (keeper.Keeper, sdk.Context) {
 	storeKey := storetypes.NewKVStoreKey(types.StoreKey)
 
 	db := dbm.NewMemDB()

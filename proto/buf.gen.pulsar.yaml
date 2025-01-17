@@ -7,7 +7,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: emarket/api
+    default: switcheo/api
     except:
       - buf.build/googleapis/googleapis
       - buf.build/cosmos/gogo-proto
